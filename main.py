@@ -6,7 +6,7 @@ from github import Auth
 from ChangeRephraser import ChangeRephraser
 
 def update_pr_description(repo_name, pr_number, new_description):
-    g = Github(GITHUB_TOKEN)
+    g = Github(TOKEN)
     repo = g.get_repo(repo_name)
     pr = repo.get_pull(pr_number)
     pr.edit(body=new_description)
