@@ -13,7 +13,7 @@ def update_pr_description(repo_name, pr_number, new_description):
 
 
 PR_NUMBER = 1
-REPO_NAME = "shirbal/PRBuddy"
+REPO_NAME = "mohmiim/Algo"
 TOKEN = open("token", "r").read()
 # using an access token
 auth = Auth.Token(TOKEN)
