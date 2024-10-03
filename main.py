@@ -5,6 +5,12 @@ from github import Auth
 
 from ChangeRephraser import ChangeRephraser
 
+def update_pr_description(repo_name, pr_number, new_description):
+    g = Github(TOKEN)
+    repo = g.get_repo(repo_name)
+    pr = repo.get_pull(pr_number)
+    pr.edit(body=new_description)
+
 TOKEN = open("token", "r").read()
 PR_NUMBER = 5
 REPO_NAME = "mohmiim/Algo"
@@ -41,5 +47,7 @@ for changed_file in changed_files:
 
 rephraser = ChangeRephraser()
 print(change)
-print(rephraser.convert(change).get("description"))
+description = rephraser.convert(change).get("description")
+print(description)
+update_pr_description(description)
 g.close()
