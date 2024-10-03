@@ -15,10 +15,13 @@ class ChangeRephraser(object):
             self.chat = ChatOpenAI(temperature=0, model_name='gpt-4', streaming=True)
 
         self.template = """\
+                        You are a helpful assistant that rephrases the changes done to a software project in github, \
+                        to be used as a Pull Request description.
                         Using following change , generate extract the following:
                         description: A description of the change included in the text, given that the text describe \
                         changes done to a software project in github, and the description you will proved will be used \
-                        as a Pull Request description in github. Please make it formatted as markdown and include title.
+                        as a Pull Request description in github. The description should be a short summary of the changes and the reason for the changes.
+                        The description should be formatted as markdown, each change should be in a new line with a number.
                         text: {text}
     
                         {format_instructions}
